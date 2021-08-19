@@ -21,3 +21,13 @@
 <div [hidden]="mostrarCursos">
   Não existem cursos na lista
 </div>
+
+<!-- explicação sobre o motivo de utilizar-mos o * nas diretivas apresentadas -->
+<!-- por debaixo dos panos o angular utiliza a sintaxe abaixo -->
+<ng-template [ngIf]="mostrarCursos">
+  <div>Lista de cursos aqui</div>
+</ng-template>
+
+<div template="ngIf mostrarCursos">
+  <div>Lista de cursos aqui</div>
+</div>

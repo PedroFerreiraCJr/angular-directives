@@ -5,15 +5,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link"
-        [class.active]="aba == 'home'"
-        (click)="changeSelection('home')">Home</a>
-      <a class="nav-link"
-        [class.active]="aba == 'mapa'"
-        (click)="changeSelection('mapa')">Mapa</a>
-      <a class="nav-link"
-        [class.active]="aba == 'lista'"
-        (click)="changeSelection('lista')">Lista</a>
+      <a class="nav-link" [class.active]="aba == 'home'" (click)="changeSelection('home')">Home</a>
+      <a class="nav-link" [class.active]="aba == 'mapa'" (click)="changeSelection('mapa')">Mapa</a>
+      <a class="nav-link" [class.active]="aba == 'lista'" (click)="changeSelection('lista')">Lista</a>
     </div>
   </div>
 </nav>
@@ -22,4 +16,20 @@
   <p *ngSwitchCase="'mapa'">Modo Mapa Ativado</p>
   <p *ngSwitchCase="'lista'">Modo Lista Ativado</p>
   <p *ngSwitchDefault>Home</p>
+</div>
+
+<!-- explicação sobre o motivo de utilizar-mos o * nas diretivas apresentadas -->
+<!-- por debaixo dos panos o angular utiliza a sintaxe abaixo -->
+<div class="container-fluid" [ngSwitch]="aba">
+  <ng-template [ngSwitchCase]="'mapa'">
+    <p>Modo Mapa Ativado</p>
+  </ng-template>
+
+  <ng-template [ngSwitchCase]="'lista'">
+    <p>Modo Lista Ativado</p>
+  </ng-template>
+
+  <ng-template [ngSwitchCase]="'home'" ngSwitchDefault>
+    <p>Home</p>
+  </ng-template>
 </div>
