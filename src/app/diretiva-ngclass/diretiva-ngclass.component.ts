@@ -17,5 +17,4 @@ export class DiretivaNgclassComponent implements OnInit {
   public onChange(): void {
     this.danger = !this.danger;
   }
-
 }
