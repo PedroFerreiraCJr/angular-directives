@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiretivaNgswitchComponent implements OnInit {
 
+  aba: string = 'home';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public changeSelection(valor: string): void {
+    this.aba = valor;
+    console.log('aba', this.aba);
   }
 
 }

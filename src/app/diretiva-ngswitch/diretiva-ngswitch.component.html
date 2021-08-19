@@ -1,1 +1,25 @@
-<p>diretiva-ngswitch works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link"
+        [class.active]="aba == 'home'"
+        (click)="changeSelection('home')">Home</a>
+      <a class="nav-link"
+        [class.active]="aba == 'mapa'"
+        (click)="changeSelection('mapa')">Mapa</a>
+      <a class="nav-link"
+        [class.active]="aba == 'lista'"
+        (click)="changeSelection('lista')">Lista</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid" [ngSwitch]="aba">
+  <p *ngSwitchCase="'mapa'">Modo Mapa Ativado</p>
+  <p *ngSwitchCase="'lista'">Modo Lista Ativado</p>
+  <p *ngSwitchDefault>Home</p>
+</div>
