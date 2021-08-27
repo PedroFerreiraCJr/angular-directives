@@ -1,0 +1,16 @@
+<p>Descrição: {{ tarefa.desc }}</p>
+<!--
+  o trecho de código abaixo gera um erro na renderização do template caso o objeto responsavel esteja null ou undefined
+-->
+<!--
+<p>Responsável: {{ tarefa.responsavel.nome }}</p>
+-->
+
+<!-- essa é uma verificação que pode ser feita com o operador ternário ou uma função com validação -->
+<p>Responsável (usando operador ternário): {{ tarefa.responsavel != null ? tarefa.responsavel.nome : '' }}</p>
+
+<!-- este é feito usando o operador elvis  -->
+<p>Responsável (usando operador elvis): {{ tarefa.responsavel?.nome }}</p>
+
+<!-- também é possível usar o operador de forma aninhado  -->
+<p>Responsável (usando operador elvis de forma aninhada): {{ tarefa.responsavel?.usuario?.email }}</p>
