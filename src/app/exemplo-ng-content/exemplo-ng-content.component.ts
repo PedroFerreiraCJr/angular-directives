@@ -11,5 +11,4 @@ export class ExemploNgContentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

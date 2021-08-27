@@ -1,1 +1,11 @@
-<p>exemplo-ng-content works!</p>
+<div class="card" style="width: 18rem;">
+  <img src="https://picsum.photos/seed/picsum/200/100" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">
+      <ng-content select=".title"></ng-content>
+    </h5>
+    <p class="card-text">
+      <ng-content select=".body"></ng-content>
+    </p>
+  </div>
+</div>
