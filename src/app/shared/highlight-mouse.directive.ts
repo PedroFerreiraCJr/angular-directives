@@ -2,7 +2,7 @@
   O objetivo do decorator @HostListener é servir de ouvinte de um evento em um
   elemento hospedeiro, no caso das diretivas, o elemento HTML onde a diretiva está aplicada.
 */
-import { Directive, HostListener, ElementRef, Renderer2 } from '@angular/core';
+import { Directive, HostListener, ElementRef, Renderer2, HostBinding } from '@angular/core';
 
 /**
  * O objetivo dessa diretiva é demonstrar como escutar eventos nativos quando o mouse sobrepoe um elemento HTML.
@@ -13,15 +13,19 @@ import { Directive, HostListener, ElementRef, Renderer2 } from '@angular/core';
 export class HighlightMouseDirective {
 
   constructor(
-    private _elementRef: ElementRef,
-    private _renderer2: Renderer2) { }
+    // private _elementRef: ElementRef,
+    // private _renderer2: Renderer2
+    ) { }
 
   // O parâmetro recebido é o nome do evento que deve ser escutado na tag decorada pela diretiva.
   // Neste caso, estamos aplicando um estilo ao elemento HTML referenciado por esta diretiva
   //quando o mouse estiver por cima do elemento HTML.
   @HostListener('mouseenter')
   public onMouseOver(): void {
+    /*
     this._renderer2.setStyle(this._elementRef.nativeElement, 'background-color', 'yellow');
+    */
+    this.backgroundColor = 'yellow';
   }
 
   // O parâmetro recebido é o nome do evento que deve ser escutado na tag decorada pela diretiva.
@@ -29,6 +33,14 @@ export class HighlightMouseDirective {
   //quando o mouse estiver fora do elemento HTML.
   @HostListener('mouseleave')
   public onMouseLeave(): void {
+    /*
     this._renderer2.removeStyle(this._elementRef.nativeElement, 'background-color');
+    */
+   this.backgroundColor = 'white';
   }
+
+  // O decorator @HostBinding recebe um atributo do elemento HTML onde a diretiva está aplicada.
+  // Neste caso, foi feito a utilização de forma combinada dos decorators @HostListener e @HostBinding para alcançar o objetivo desejado.
+  @HostBinding('style.backgroundColor')
+  backgroundColor: string = '';
 }
