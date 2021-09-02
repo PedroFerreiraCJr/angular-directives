@@ -1,7 +1,19 @@
 <p fundoAmarelo>
-  Texto com fundo amerelo
+  Texto com fundo amerelo.
 </p>
 
 <p highlightMouse>
-  Texto com highlight quando passo o mouse
+  Texto com highlight quando passo o mouse.
+</p>
+
+<!--
+  Esta é a forma padrão de utilizar uma diretiva com @Input properties de forma separada, a diretiva
+  e as input properties separadas.
+<p highlight [defaultColor]="'grey'" [highlightColor]="'red'">
+  Texto com highlight com cores customizadas.
+</p>
+-->
+
+<p [highlight]="'red'" [defaultColor]="'grey'" >
+  Texto com highlight com cores customizadas.
 </p>
